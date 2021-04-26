@@ -5,6 +5,7 @@ class Play extends Phaser.Scene {
     // preload
 
     preload() {
+        this.load.image('ocean_deep','./assets/under_water.png')
         this.load.image('rocket', './assets/rocket.png');
         this.load.image('spaceship', './assets/spaceship.png')
         this.load.image('starfield', './assets/starfield.png')
@@ -21,14 +22,14 @@ class Play extends Phaser.Scene {
 
 
         // place starfield
-        this.starfield = this.add.tileSprite(0, 0, game.config.width, game.config.height, 'starfield').setOrigin(0, 0);
-        // this.add.text(20, 20, "Rocket Patrol Play"); // debug line 
+        this.starfield = this.add.tileSprite(0, 0, game.config.width, game.config.height, 'ocean_deep').setOrigin(0, 0);
+        // this.add.text(20, 20, "Rocket Patrol Play"); // debug line
         // green UI background
         this.add.rectangle(0, borderUISize + borderPadding, game.config.width,
             borderUISize * 2, 0x00FF00).setOrigin(0, 0);
 
         // white borders
-        //top 
+        //top
         this.add.rectangle(0, 0, game.config.width, borderUISize, 0xFFFFFF).setOrigin(0, 0);
         // bottom
         this.add.rectangle(0, game.config.height - borderUISize, game.config.width, borderUISize,
@@ -86,7 +87,7 @@ class Play extends Phaser.Scene {
         // game over
         this.gameOver = false;
 
-        // 60 second play clock 
+        // 60 second play clock
 
         scoreConfig.fixedWidth = 0;
         this.clock = this.time.delayedCall(60000, () => {
@@ -140,7 +141,7 @@ class Play extends Phaser.Scene {
             rocket.x + rocket.width > ship.x &&
             rocket.y < ship.y + ship.height &&
             rocket.height + rocket.y > ship.y) {
-            return true; // collision 
+            return true; // collision
         }
         else {
             return false; // no collision
