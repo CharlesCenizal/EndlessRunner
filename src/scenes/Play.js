@@ -30,15 +30,15 @@ class Play extends Phaser.Scene {
 
         // white borders
         //top
-        this.add.rectangle(0, 0, game.config.width, borderUISize, 0xFFFFFF).setOrigin(0, 0);
+        //this.add.rectangle(0, 0, game.config.width, borderUISize, 0xFFFFFF).setOrigin(0, 0);
         // bottom
-        this.add.rectangle(0, game.config.height - borderUISize, game.config.width, borderUISize,
-            0xFFFFFF).setOrigin(0, 0);
+        //this.add.rectangle(0, game.config.height - borderUISize, game.config.width, borderUISize,
+        //    0xFFFFFF).setOrigin(0, 0);
         // left
-        this.add.rectangle(0, 0, borderUISize, game.config.height, 0xFFFFFF).setOrigin(0, 0);
+        //this.add.rectangle(0, 0, borderUISize, game.config.height, 0xFFFFFF).setOrigin(0, 0);
         // right
-        this.add.rectangle(game.config.width - borderUISize, 0, borderUISize, game.config.height
-            , 0xFFFFFF).setOrigin(0, 0);
+        //this.add.rectangle(game.config.width - borderUISize, 0, borderUISize, game.config.height
+        //    , 0xFFFFFF).setOrigin(0, 0);
         // add a Rocket
         this.player1Rocket = new Rocket(this, game.config.width / 2, game.config.height / 2, 'rocket').setOrigin(0.5, 0.5);
         // add spaceshift (x3)
