@@ -5,8 +5,8 @@ class Play extends Phaser.Scene {
     // preload
 
     preload() {
-        this.load.image('ocean_deep','./assets/under_water.png')
-        this.load.image('rocket', './assets/rocket.png');
+        this.load.image('ocean_deep','./assets/SeaBackground.png')
+        this.load.image('rocket', './assets/Fish.png');
         this.load.image('spaceship', './assets/spaceship.png')
         this.load.image('starfield', './assets/starfield.png')
         this.load.spritesheet('explosion', './assets/explosion.png', {
@@ -25,8 +25,8 @@ class Play extends Phaser.Scene {
         this.starfield = this.add.tileSprite(0, 0, game.config.width, game.config.height, 'ocean_deep').setOrigin(0, 0);
         // this.add.text(20, 20, "Rocket Patrol Play"); // debug line
         // green UI background
-        this.add.rectangle(0, borderUISize + borderPadding, game.config.width,
-            borderUISize * 2, 0x00FF00).setOrigin(0, 0);
+        //this.add.rectangle(0, borderUISize + borderPadding, game.config.width,
+        //    borderUISize * 2, 0x00FF00).setOrigin(0, 0);
 
         // white borders
         //top
@@ -40,7 +40,7 @@ class Play extends Phaser.Scene {
         this.add.rectangle(game.config.width - borderUISize, 0, borderUISize, game.config.height
             , 0xFFFFFF).setOrigin(0, 0);
         // add a Rocket
-        this.player1Rocket = new Rocket(this, game.config.width / 2, game.config.height - borderUISize - borderPadding, 'rocket').setOrigin(0.5, 0);
+        this.player1Rocket = new Rocket(this, game.config.width / 2, game.config.height / 2, 'rocket').setOrigin(0.5, 0.5);
         // add spaceshift (x3)
 
         this.ship01 = new Spaceship(this, game.config.width + borderUISize * 6, borderUISize * 4, 'spaceship', 0, 30).setOrigin(0, 0);
@@ -51,6 +51,8 @@ class Play extends Phaser.Scene {
         keyR = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.R);
         keyLEFT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
         keyRIGHT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
+        keyUP = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP);
+        keyDOWN = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.DOWN);
 
         // animation config
         this.anims.create({
@@ -99,7 +101,7 @@ class Play extends Phaser.Scene {
 
     // update
     update() {
-        this.starfield.tilePositionX -= starSpeed;
+        this.starfield.tilePositionX += starSpeed;
         if (this.gameOver && Phaser.Input.Keyboard.JustDown(keyR)) {
             this.scene.restart();
         }

@@ -12,11 +12,17 @@ class Rocket extends Phaser.GameObjects.Sprite {
     update() {
         // left and right movement
         if (!this.isFiring) {
-            if (keyLEFT.isDown && this.x >= borderUISize + this.width) {
+            if (keyLEFT.isDown && this.x >= borderUISize + 30) {
                 this.x -= this.moveSpeed;
             }
-            else if (keyRIGHT.isDown && this.x <= game.config.width - borderUISize - this.width) {
+            else if (keyRIGHT.isDown && this.x <= game.config.width - borderUISize - 30) {
                 this.x += this.moveSpeed;
+            }
+            if (keyDOWN.isDown && this.y <= game.config.height - borderUISize - 30) {
+                this.y += this.moveSpeed;
+            }
+            else if (keyUP.isDown && this.y >= borderUISize + 30) {
+                this.y -= this.moveSpeed;
             }
         }
         // fire buh Ton
@@ -30,14 +36,14 @@ class Rocket extends Phaser.GameObjects.Sprite {
             this.y -= this.moveSpeed;
         }
         // reset on miss
-        if (this.y <= borderUISize * 3 + borderPadding) {
-            this.reset();
-        }
+        //if (this.y <= borderUISize * 3 + borderPadding) {
+            //this.reset();
+        //}
     }
 
     // reset rocket to ground
     reset() {
         this.isFiring = false;
-        this.y = game.config.height - borderUISize - borderPadding;
+        this.y = game.config.height - borderUISize - 30;
     }
 }
