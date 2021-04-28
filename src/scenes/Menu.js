@@ -3,6 +3,7 @@ class Menu extends Phaser.Scene {
         super("menuScene");
     }
     preload() {
+        this.load.image('map_1', './assets/map1.png')
         this.load.audio('sfx_select', './assets/assets_blip_select12.wav');
         this.load.audio('sfx_explosion', './assets/assets_explosion38.wav');
         this.load.audio('sfx_rocket', './assets/assets_rocket_shot.wav');
@@ -11,23 +12,24 @@ class Menu extends Phaser.Scene {
     create() {
         let menuConfig =
         {
-            fontFamily: 'Courier',
-            fontSize: '28px',
-            backgroundColor: '#F38141',
-            color: '#843605',
+            fontFamily: 'Times',
+            fontSize: '32px',
+            backgroundColor: '#4B0082',
+            color: '#ADD8E6',
             align: 'right',
             padding:
             {
-                top: 5,
-                bottom: 5,
+                top: 10,
+                bottom: 10,
             },
             fixedWidth: 0
         }
         // show menu text
+        this.map_1 = this.add.tileSprite(0, 0, game.config.width, game.config.height, 'map_1').setOrigin(0, 0);
         this.add.text(game.config.width / 2, game.config.height / 2 - borderUISize - borderPadding, 'Earth Run', menuConfig).setOrigin(0.5);
-        this.add.text(game.config.width / 2, game.config.height / 2, 'Use arrows to move & F to fire', menuConfig).setOrigin(0.5);
-        menuConfig.backgorundColor = "#00FF00";
-        menuConfig.color = '#000';
+        this.add.text(game.config.width / 2, game.config.height / 2, 'Press up and down and dodge the enemies!', menuConfig).setOrigin(0.5);
+        menuConfig.backgorundColor = "#4B0082";
+        menuConfig.color = '#ADD8E6';
         this.add.text(game.config.width / 2, game.config.height / 2 + borderUISize + borderPadding, 'Press ← for Novice or → for Expert', menuConfig).setOrigin(0.5);
 
         // define keys

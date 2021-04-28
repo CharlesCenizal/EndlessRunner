@@ -5,11 +5,15 @@ class Play extends Phaser.Scene {
     // preload
 
     preload() {
-        this.load.image('cali_1', './assets/calif.gif')
-        this.load.image('ocean_deep','./assets/SeaBackground.png')
+        // first background
+        this.load.image('map_1', './assets/map1.png')
+        // sea background
+        this.load.image('map_2','./assets/SeaBackground.png')
+        this.load.image('map_3', './assets/map_3.png')
+        this.load.image('map_4', './assets/map_4.png')
         this.load.image('rocket', './assets/Fish.png');
         this.load.image('spaceship', './assets/Shark.png')
-        this.load.image('starfield', './assets/starfield.png')
+
         this.load.spritesheet('explosion', './assets/explosion.png', {
             frameWidth: 64,
             frameHeight: 32,
@@ -22,8 +26,11 @@ class Play extends Phaser.Scene {
 
 
 
-        // place starfield
-        this.starfield = this.add.tileSprite(0, 0, game.config.width, game.config.height, 'cali_1').setOrigin(0, 0);
+        // place map_1
+        //this.map_1 = this.add.tileSprite(0, 0, game.config.width, game.config.height, 'map_1').setOrigin(0, 0);
+        //this.map_2 = this.add.tileSprite(0,0, game.config.width, game.config.height, 'map_2').setOrigin(0, 0);
+        this.map_3 = this.add.tileSprite(0,0, game.config.width, game.config.height, 'map_3').setOrigin(0, 0);
+        this.map_4 = this.add.tileSprite(0,0, game.config.width, game.config.height, 'map_4').setOrigin(0, 0);
         // this.add.text(20, 20, "Rocket Patrol Play"); // debug line
         // green UI background
         //this.add.rectangle(0, borderUISize + borderPadding, game.config.width,
@@ -100,17 +107,30 @@ class Play extends Phaser.Scene {
         //}, null, this);
 
         this.timer = 0;
+        this.counter = 0;
     }
 
     // update
-    update(time, delta) {
+    update(time, delta,counter) {
+
         this.timer += delta;
         while (this.timer > 1000) {
             this.scoreLeft.text = parseInt(this.scoreLeft.text) + 10;
             this.timer -= 1000;
-        }
 
-        this.starfield.tilePositionX += starSpeed;
+        }
+        /*
+        counter += 1;
+        if(counter == 5)
+        {
+          this.tileSprite = map_1;
+        }
+        console.log(counter);
+        */
+        //this.map_1.tilePositionX += starSpeed;
+        //this.map_2.tilePositionX += starSpeed;
+        this.map_3.tilePositionX += starSpeed;
+        this.map_4.tilePositionX += starSpeed;
         if (this.gameOver && Phaser.Input.Keyboard.JustDown(keyR)) {
             this.scene.restart();
         }
@@ -143,6 +163,8 @@ class Play extends Phaser.Scene {
             this.player1Rocket.reset();
             this.shipExplode(this.ship03);
         }
+        //this.map_1 = this.add.tileSprite(0, 0, game.config.width, game.config.height, 'map_1',500).setOrigin(0, 0);
+        //this.map_2 = this.add.tileSprite(0,0, game.config.width, game.config.height, 'map_2',1000).setOrigin(0,0);
     }
 
 
