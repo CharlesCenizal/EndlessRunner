@@ -5,6 +5,7 @@ class Play extends Phaser.Scene {
     // preload
 
     preload() {
+        this.load.image('cali_1', './assets/calif.gif')
         this.load.image('ocean_deep','./assets/SeaBackground.png')
         this.load.image('rocket', './assets/Fish.png');
         this.load.image('spaceship', './assets/Shark.png')
@@ -22,7 +23,7 @@ class Play extends Phaser.Scene {
 
 
         // place starfield
-        this.starfield = this.add.tileSprite(0, 0, game.config.width, game.config.height, 'ocean_deep').setOrigin(0, 0);
+        this.starfield = this.add.tileSprite(0, 0, game.config.width, game.config.height, 'cali_1').setOrigin(0, 0);
         // this.add.text(20, 20, "Rocket Patrol Play"); // debug line
         // green UI background
         //this.add.rectangle(0, borderUISize + borderPadding, game.config.width,
@@ -108,7 +109,7 @@ class Play extends Phaser.Scene {
             this.scoreLeft.text = parseInt(this.scoreLeft.text) + 10;
             this.timer -= 1000;
         }
-        
+
         this.starfield.tilePositionX += starSpeed;
         if (this.gameOver && Phaser.Input.Keyboard.JustDown(keyR)) {
             this.scene.restart();
