@@ -18,7 +18,11 @@ class Spaceship extends Phaser.GameObjects.Sprite {
     }
     // position reset
     reset() {
+        this.moveSpeed = Math.ceil(Math.random() * 5) + 2;
+        console.log(this.moveSpeed);
         this.x = game.config.width;
+        let randheight = Math.floor(Math.random() * game.config.height - 180);
+        this.y = randheight;
     }
 
 }
