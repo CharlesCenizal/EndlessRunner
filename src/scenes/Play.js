@@ -30,7 +30,7 @@ class Play extends Phaser.Scene {
         //this.map_1 = this.add.tileSprite(0, 0, game.config.width, game.config.height, 'map_1').setOrigin(0, 0);
         //this.map_2 = this.add.tileSprite(0,0, game.config.width, game.config.height, 'map_2').setOrigin(0, 0);
         this.map_3 = this.add.tileSprite(0,0, game.config.width, game.config.height, 'map_3').setOrigin(0, 0);
-        this.map_4 = this.add.tileSprite(0,0, game.config.width, game.config.height, 'map_4').setOrigin(0, 0);
+        this.map_4 = this.add.tileSprite(0,0, game.config.width, game.config.height, 'map_2').setOrigin(0, 0);
         // this.add.text(20, 20, "Rocket Patrol Play"); // debug line
         // green UI background
         //this.add.rectangle(0, borderUISize + borderPadding, game.config.width,
@@ -136,7 +136,7 @@ class Play extends Phaser.Scene {
         }
         if (this.gameOver && Phaser.Input.Keyboard.JustDown(keyLEFT)) {
 
-            this.scene.start("menuScene")
+            this.scene.start("menuScene");
         }
         if (!this.gameOver) {
             // update rocket
@@ -150,18 +150,18 @@ class Play extends Phaser.Scene {
 
         // check collisions
         if (this.checkCollision(this.player1Rocket, this.ship01)) {
-            console.log('hit s1');
-            this.player1Rocket.reset();
+            //console.log('hit s1');
+            //this.player1Rocket.reset();
             this.shipExplode(this.ship01);
         }
         if (this.checkCollision(this.player1Rocket, this.ship02)) {
-            console.log('hit s2');
-            this.player1Rocket.reset();
+            //console.log('hit s2');
+            //this.player1Rocket.reset();
             this.shipExplode(this.ship02);
         }
         if (this.checkCollision(this.player1Rocket, this.ship03)) {
-            console.log('hit s3');
-            this.player1Rocket.reset();
+            //console.log('hit s3');
+            //this.player1Rocket.reset();
             this.shipExplode(this.ship03);
         }
         //this.map_1 = this.add.tileSprite(0, 0, game.config.width, game.config.height, 'map_1',500).setOrigin(0, 0);
@@ -183,8 +183,9 @@ class Play extends Phaser.Scene {
     }
 
     shipExplode(ship) {
+        this.scene.start("gameOverScene");
         // temporarily hide ship
-        ship.alpha = 0;
+        /*ship.alpha = 0;
 
         let boom = this.add.sprite(ship.x, ship.y, 'explosion').setOrigin(0, 0);
         boom.anims.play('explode');
@@ -200,10 +201,9 @@ class Play extends Phaser.Scene {
         // expload sound
 
         this.sound.play('sfx_explosion');
-        this.scene.start('gameOverScene');
         //this.add.text(game.config.width / 2, game.config.height / 2, 'GAME OVER').setOrigin(0.5);
         //    this.add.text(game.config.width / 2, game.config.height / 2 + 64, 'Press (R) to Restart or ← to Menu').setOrigin(0.5);
-        //    this.gameOver = true;
+        //    this.gameOver = true;*/
 
 
     }
