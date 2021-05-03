@@ -26,11 +26,15 @@ class GameOver extends Phaser.Scene {
         this.add.text(game.config.width / 2, game.config.height / 2, 'GAME OVERRRRR',menuConfig).setOrigin(0.5);
         this.add.text(game.config.width / 2, game.config.height / 2 + 64, 'Press (R) to Restart or ← to Menu',menuConfig).setOrigin(0.5);
         keyLEFT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
+        keyR = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.R);
     }
 
     update() {
         if (Phaser.Input.Keyboard.JustDown(keyLEFT)) {
             this.scene.start("menuScene")
+        }
+        if (Phaser.Input.Keyboard.JustDown(keyLEFT)) {
+            this.scene.start("playScene")
         }
     }
  }

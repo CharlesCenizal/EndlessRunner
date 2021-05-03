@@ -131,6 +131,7 @@ class Play extends Phaser.Scene {
         //this.map_2.tilePositionX += starSpeed;
         this.map_3.tilePositionX += starSpeed;
         this.map_4.tilePositionX += starSpeed;
+        /*
         if (this.gameOver && Phaser.Input.Keyboard.JustDown(keyR)) {
             this.scene.restart();
         }
@@ -138,6 +139,7 @@ class Play extends Phaser.Scene {
 
             this.scene.start("menuScene");
         }
+        */
         if (!this.gameOver) {
             // update rocket
             this.player1Rocket.update();
