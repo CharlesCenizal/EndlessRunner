@@ -183,6 +183,7 @@ class Play extends Phaser.Scene {
     }
 
     shipExplode(ship) {
+        console.log("trying to go to game over scene");
         this.scene.start("gameOverScene");
         // temporarily hide ship
         /*ship.alpha = 0;
