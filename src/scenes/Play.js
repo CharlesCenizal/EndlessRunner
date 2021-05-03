@@ -119,27 +119,17 @@ class Play extends Phaser.Scene {
             this.timer -= 1000;
 
         }
-        /*
-        counter += 1;
-        if(counter == 5)
+        if(parseInt(this.scoreLeft.text) % 150 == 0 && parseInt(this.scoreLeft.text) > 0)
         {
-          this.tileSprite = map_1;
+          this.map_4.setTexture('map_1');
         }
-        console.log(counter);
-        */
-        //this.map_1.tilePositionX += starSpeed;
-        //this.map_2.tilePositionX += starSpeed;
+        else if(parseInt(this.scoreLeft.text) % 300 ==0 && parseInt(this.scoreLeft.text)> 0){
+          this.map_4.setTexture('map_2');
+        }
+
         this.map_3.tilePositionX += starSpeed;
         this.map_4.tilePositionX += starSpeed;
-        /*
-        if (this.gameOver && Phaser.Input.Keyboard.JustDown(keyR)) {
-            this.scene.restart();
-        }
-        if (this.gameOver && Phaser.Input.Keyboard.JustDown(keyLEFT)) {
-
-            this.scene.start("menuScene");
-        }
-        */
+    
         if (!this.gameOver) {
             // update rocket
             this.player1Rocket.update();
