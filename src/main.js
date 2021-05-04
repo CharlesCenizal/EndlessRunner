@@ -1,5 +1,29 @@
-// absolutely necessary
-//console.log('Charles is the best maker of rocket patrol tutorials :^)');
+// Comment Explanation for "Organization"
+/*
+Collaborator Names:
+Charles Cenizal
+Jacob Yu
+Efrain Luengas
+
+Date Completed:
+5/4/21
+
+Game Title:
+ Shark Dodger
+
+*/
+
+/*
+Creative tilt:
+--------------------------------------------------------------
+The portion of our game that is technically interesting
+And also adds great visual style to the game is that the
+tileSprite changes every 100 points
+This was implemented using if else statements, modulus
+and the .setTexture('image') method in order to add technical
+involvement into the game.
+--------------------------------------------------------------
+*/
 
 // game config
 let config = {

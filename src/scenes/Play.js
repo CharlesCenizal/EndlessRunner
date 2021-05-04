@@ -1,3 +1,18 @@
+// Comment Explanation for "Organization"
+/*
+Collaborator Names:
+Charles Cenizal
+Jacob Yu
+Efrain Luengas
+
+Date Completed:
+5/4/21
+
+Game Title:
+ Shark Dodger
+
+*/
+
 /*
 Creative tilt:
 --------------------------------------------------------------
