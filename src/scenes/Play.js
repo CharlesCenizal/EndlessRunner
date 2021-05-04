@@ -38,7 +38,8 @@ class Play extends Phaser.Scene {
         this.load.image('map_3', './assets/map_3.png')
         this.load.image('map_4', './assets/map_4.png')
         this.load.image('rocket', './assets/Fish.png');
-        this.load.image('spaceship', './assets/Shark.png')
+        this.load.image('spaceship', './assets/Shark.png');
+        this.load.image('hammerhead', './assets/Hammerhead.png');
 
         this.load.spritesheet('explosion', './assets/explosion.png', {
             frameWidth: 64,
@@ -62,6 +63,7 @@ class Play extends Phaser.Scene {
         this.ship01 = new Spaceship(this, game.config.width + borderUISize * 6, borderUISize * 4, 'spaceship', 0, 30).setOrigin(0, 0);
         this.ship02 = new Spaceship(this, game.config.width + borderUISize * 3, borderUISize * 5 + borderPadding * 2, 'spaceship', 0, 20).setOrigin(0, 0);
         this.ship03 = new Spaceship(this, game.config.width, borderUISize * 6 + borderPadding * 4, 'spaceship', 0, 10).setOrigin(0, 0);
+        this.hammerhead = new Hammerhead(this, game.config.width, borderUISize * 6 + borderPadding * 4, 'hammerhead', 0, 10).setOrigin(0, 0);
         // define keys
         keyF = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.F);
         keyR = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.R);
@@ -114,19 +116,28 @@ class Play extends Phaser.Scene {
         //    this.gameOver = true;
         //}, null, this);
 
+        this.difficultyTimer = 0;
         this.timer = 0;
         this.counter = 0;
     }
 
     // update
     update(time, delta,counter) {
-
+        this.difficultyTimer += delta;
         this.timer += delta;
+        while (this.difficultyTimer > 30000) {
+            this.difficultyTimer -= 30000;
+            if (this.ship01.moveSpeed < 7) {
+                this.ship01.moveSpeed += 1;
+                this.ship02.moveSpeed += 1;
+                this.ship03.moveSpeed += 1;
+            }
+        }
         while (this.timer > 1000) {
             this.scoreLeft.text = parseInt(this.scoreLeft.text) + 10;
             this.timer -= 1000;
-
         }
+
         if(parseInt(this.scoreLeft.text) % 1000 == 0 && parseInt(this.scoreLeft.text) > 0)
         {
           this.curr_background.setTexture('map_2');
@@ -179,6 +190,13 @@ class Play extends Phaser.Scene {
             this.ship01.update();
             this.ship02.update();
             this.ship03.update();
+            this.hammerhead.update();
+            if (!this.hammerhead.active) {
+                let randInt = Math.floor((Math.random() * 300));
+                if (randInt == 30) {
+                    this.hammerhead.active = true;
+                }
+            }
         }
 
 
@@ -192,6 +210,11 @@ class Play extends Phaser.Scene {
             this.shipExplode(this.ship02);
         }
         if (this.checkCollision(this.player1Rocket, this.ship03)) {
+
+            this.shipExplode(this.ship03);
+        }
+
+        if (this.checkCollision(this.player1Rocket, this.hammerhead)) {
 
             this.shipExplode(this.ship03);
         }
