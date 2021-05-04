@@ -29,23 +29,7 @@ class Play extends Phaser.Scene {
 
 
         this.curr_background = this.add.tileSprite(0,0, game.config.width, game.config.height, 'map_2').setOrigin(0, 0);
-        // this.add.text(20, 20, "Rocket Patrol Play"); // debug line
-        // green UI background
-        //this.add.rectangle(0, borderUISize + borderPadding, game.config.width,
-        //    borderUISize * 2, 0x00FF00).setOrigin(0, 0);
 
-        // white borders
-        //top
-        //this.add.rectangle(0, 0, game.config.width, borderUISize, 0xFFFFFF).setOrigin(0, 0);
-        // bottom
-        //this.add.rectangle(0, game.config.height - borderUISize, game.config.width, borderUISize,
-        //    0xFFFFFF).setOrigin(0, 0);
-        // left
-        //this.add.rectangle(0, 0, borderUISize, game.config.height, 0xFFFFFF).setOrigin(0, 0);
-        // right
-        //this.add.rectangle(game.config.width - borderUISize, 0, borderUISize, game.config.height
-        //    , 0xFFFFFF).setOrigin(0, 0);
-        // add a Rocket
         this.player1Rocket = new Rocket(this, game.config.width / 2, game.config.height / 2, 'rocket').setOrigin(0.5, 0.5);
         // add spaceshift (x3)
 
@@ -117,12 +101,46 @@ class Play extends Phaser.Scene {
             this.timer -= 1000;
 
         }
-        if(parseInt(this.scoreLeft.text) % 150 == 0 && parseInt(this.scoreLeft.text) > 0)
+        if(parseInt(this.scoreLeft.text) % 1000 == 0 && parseInt(this.scoreLeft.text) > 0)
+        {
+          this.curr_background.setTexture('map_2');
+        }
+
+        else if(parseInt(this.scoreLeft.text) % 900 == 0 && parseInt(this.scoreLeft.text) > 0)
         {
           this.curr_background.setTexture('map_1');
         }
-        else if(parseInt(this.scoreLeft.text) % 300 ==0 && parseInt(this.scoreLeft.text)> 0){
+        else if(parseInt(this.scoreLeft.text) % 800 == 0 && parseInt(this.scoreLeft.text) > 0)
+        {
           this.curr_background.setTexture('map_2');
+        }
+
+        else if(parseInt(this.scoreLeft.text) %  700 ==0 && parseInt(this.scoreLeft.text)> 0){
+          this.curr_background.setTexture('map_1');
+        }
+
+        else if(parseInt(this.scoreLeft.text) %  600 ==0 && parseInt(this.scoreLeft.text)> 0){
+          this.curr_background.setTexture('map_2');
+        }
+
+        else if(parseInt(this.scoreLeft.text) %  500 ==0 && parseInt(this.scoreLeft.text)> 0){
+          this.curr_background.setTexture('map_1');
+        }
+
+        else if(parseInt(this.scoreLeft.text) %  400 ==0 && parseInt(this.scoreLeft.text)> 0){
+          this.curr_background.setTexture('map_2');
+        }
+
+        else if(parseInt(this.scoreLeft.text) %  300 ==0 && parseInt(this.scoreLeft.text)> 0){
+          this.curr_background.setTexture('map_1');
+        }
+
+        else if(parseInt(this.scoreLeft.text) %  200 ==0 && parseInt(this.scoreLeft.text)> 0){
+          this.curr_background.setTexture('map_2');
+        }
+
+        else if(parseInt(this.scoreLeft.text) %  100 ==0 && parseInt(this.scoreLeft.text)> 0){
+          this.curr_background.setTexture('map_1');
         }
 
 
@@ -171,7 +189,7 @@ class Play extends Phaser.Scene {
     shipExplode(ship) {
         console.log("trying to go to game over scene");
         this.scene.start("gameOverScene");
-        
+
 
     }
 }
