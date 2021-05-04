@@ -26,7 +26,7 @@ class Menu extends Phaser.Scene {
         }
         // show menu text
         this.map_1 = this.add.tileSprite(0, 0, game.config.width, game.config.height, 'map_1').setOrigin(0, 0);
-        this.add.text(game.config.width / 2, game.config.height / 2 - borderUISize - borderPadding, 'Earth Run', menuConfig).setOrigin(0.5);
+        this.add.text(game.config.width / 2, game.config.height / 2 - borderUISize - borderPadding, 'Shark Dodger', menuConfig).setOrigin(0.5);
         this.add.text(game.config.width / 2, game.config.height / 2, 'Press up and down and dodge the enemies!', menuConfig).setOrigin(0.5);
         menuConfig.backgorundColor = "#4B0082";
         menuConfig.color = '#ADD8E6';
