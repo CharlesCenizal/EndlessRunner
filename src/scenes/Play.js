@@ -26,11 +26,9 @@ class Play extends Phaser.Scene {
 
 
 
-        // place map_1
-        //this.map_1 = this.add.tileSprite(0, 0, game.config.width, game.config.height, 'map_1').setOrigin(0, 0);
-        //this.map_2 = this.add.tileSprite(0,0, game.config.width, game.config.height, 'map_2').setOrigin(0, 0);
-        this.map_3 = this.add.tileSprite(0,0, game.config.width, game.config.height, 'map_3').setOrigin(0, 0);
-        this.map_4 = this.add.tileSprite(0,0, game.config.width, game.config.height, 'map_2').setOrigin(0, 0);
+
+
+        this.curr_background = this.add.tileSprite(0,0, game.config.width, game.config.height, 'map_2').setOrigin(0, 0);
         // this.add.text(20, 20, "Rocket Patrol Play"); // debug line
         // green UI background
         //this.add.rectangle(0, borderUISize + borderPadding, game.config.width,
@@ -121,15 +119,15 @@ class Play extends Phaser.Scene {
         }
         if(parseInt(this.scoreLeft.text) % 150 == 0 && parseInt(this.scoreLeft.text) > 0)
         {
-          this.map_4.setTexture('map_1');
+          this.curr_background.setTexture('map_1');
         }
         else if(parseInt(this.scoreLeft.text) % 300 ==0 && parseInt(this.scoreLeft.text)> 0){
-          this.map_4.setTexture('map_2');
+          this.curr_background.setTexture('map_2');
         }
 
-        this.map_3.tilePositionX += starSpeed;
-        this.map_4.tilePositionX += starSpeed;
-    
+
+        this.curr_background.tilePositionX += starSpeed;
+
         if (!this.gameOver) {
             // update rocket
             this.player1Rocket.update();
@@ -142,22 +140,18 @@ class Play extends Phaser.Scene {
 
         // check collisions
         if (this.checkCollision(this.player1Rocket, this.ship01)) {
-            //console.log('hit s1');
-            //this.player1Rocket.reset();
+
             this.shipExplode(this.ship01);
         }
         if (this.checkCollision(this.player1Rocket, this.ship02)) {
-            //console.log('hit s2');
-            //this.player1Rocket.reset();
+
             this.shipExplode(this.ship02);
         }
         if (this.checkCollision(this.player1Rocket, this.ship03)) {
-            //console.log('hit s3');
-            //this.player1Rocket.reset();
+
             this.shipExplode(this.ship03);
         }
-        //this.map_1 = this.add.tileSprite(0, 0, game.config.width, game.config.height, 'map_1',500).setOrigin(0, 0);
-        //this.map_2 = this.add.tileSprite(0,0, game.config.width, game.config.height, 'map_2',1000).setOrigin(0,0);
+
     }
 
 
@@ -177,27 +171,7 @@ class Play extends Phaser.Scene {
     shipExplode(ship) {
         console.log("trying to go to game over scene");
         this.scene.start("gameOverScene");
-        // temporarily hide ship
-        /*ship.alpha = 0;
-
-        let boom = this.add.sprite(ship.x, ship.y, 'explosion').setOrigin(0, 0);
-        boom.anims.play('explode');
-
-        boom.on('animationcomplete', () => {
-            ship.reset();
-            ship.alpha = 1;
-            boom.destroy();
-        });
-        // score add
-        this.p1Score += ship.points;
-        //this.scoreLeft.text = this.p1Score;
-        // expload sound
-
-        this.sound.play('sfx_explosion');
-        //this.add.text(game.config.width / 2, game.config.height / 2, 'GAME OVER').setOrigin(0.5);
-        //    this.add.text(game.config.width / 2, game.config.height / 2 + 64, 'Press (R) to Restart or ← to Menu').setOrigin(0.5);
-        //    this.gameOver = true;*/
-
+        
 
     }
 }
