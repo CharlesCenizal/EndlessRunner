@@ -3,7 +3,7 @@ class Hammerhead extends Phaser.GameObjects.Sprite {
         super(scene, x, y, texture, frame);
         scene.add.existing(this); // add to existing scene
         this.points = pointValue; // store point value
-        this.moveSpeed = 12;       // pixels per frame
+        this.moveSpeed = 6;       // pixels per frame
         this.active = false;
     }
 
@@ -13,7 +13,7 @@ class Hammerhead extends Phaser.GameObjects.Sprite {
             this.x -= this.moveSpeed;
         }
 
-        // wrap around 
+        // wrap around
 
         if (this.x <= 0 - this.width) {
             this.reset();

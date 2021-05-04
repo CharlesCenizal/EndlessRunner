@@ -35,6 +35,10 @@ class Play extends Phaser.Scene {
         this.load.image('map_1', './assets/map1.png')
         // sea background
         this.load.image('map_2','./assets/SeaBackground.png')
+        this.load.image('sea1','./assets/sea1.png')
+        this.load.image('sea2','./assets/sea2.png')
+        this.load.image('sea3','./assets/sea3.png')
+        this.load.image('sea4','./assets/sea4.png')
         this.load.image('map_3', './assets/map_3.png')
         this.load.image('map_4', './assets/map_4.png')
         this.load.image('rocket', './assets/Fish.png');
@@ -140,20 +144,20 @@ class Play extends Phaser.Scene {
 
         if(parseInt(this.scoreLeft.text) % 1000 == 0 && parseInt(this.scoreLeft.text) > 0)
         {
-          this.curr_background.setTexture('map_2');
+          this.curr_background.setTexture('sea4');
         }
 
         else if(parseInt(this.scoreLeft.text) % 900 == 0 && parseInt(this.scoreLeft.text) > 0)
         {
-          this.curr_background.setTexture('map_1');
+          this.curr_background.setTexture('sea3');
         }
         else if(parseInt(this.scoreLeft.text) % 800 == 0 && parseInt(this.scoreLeft.text) > 0)
         {
-          this.curr_background.setTexture('map_2');
+          this.curr_background.setTexture('sea2');
         }
 
         else if(parseInt(this.scoreLeft.text) %  700 ==0 && parseInt(this.scoreLeft.text)> 0){
-          this.curr_background.setTexture('map_1');
+          this.curr_background.setTexture('sea1');
         }
 
         else if(parseInt(this.scoreLeft.text) %  600 ==0 && parseInt(this.scoreLeft.text)> 0){
@@ -161,19 +165,19 @@ class Play extends Phaser.Scene {
         }
 
         else if(parseInt(this.scoreLeft.text) %  500 ==0 && parseInt(this.scoreLeft.text)> 0){
-          this.curr_background.setTexture('map_1');
+          this.curr_background.setTexture('sea4');
         }
 
         else if(parseInt(this.scoreLeft.text) %  400 ==0 && parseInt(this.scoreLeft.text)> 0){
-          this.curr_background.setTexture('map_2');
+          this.curr_background.setTexture('sea3');
         }
 
         else if(parseInt(this.scoreLeft.text) %  300 ==0 && parseInt(this.scoreLeft.text)> 0){
-          this.curr_background.setTexture('map_1');
+          this.curr_background.setTexture('sea2');
         }
 
         else if(parseInt(this.scoreLeft.text) %  200 ==0 && parseInt(this.scoreLeft.text)> 0){
-          this.curr_background.setTexture('map_2');
+          this.curr_background.setTexture('sea1');
         }
 
         else if(parseInt(this.scoreLeft.text) %  100 ==0 && parseInt(this.scoreLeft.text)> 0){
