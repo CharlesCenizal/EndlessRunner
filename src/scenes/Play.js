@@ -88,17 +88,17 @@ class Play extends Phaser.Scene {
 
         let scoreConfig =
         {
-            fontFamily: 'Courier',
-            fontSize: '28px',
-            backgroundColor: '#F38141',
-            color: '#843605',
-            align: 'right',
-            padding:
-            {
-                top: 5,
-                bottom: 5,
-            },
-            fixedWidth: 100
+          fontFamily: 'Times',
+          fontSize: '32px',
+          backgroundColor: '#4B0082',
+          color: '#ADD8E6',
+          align: 'right',
+          padding:
+          {
+              top: 10,
+              bottom: 10,
+          },
+          fixedWidth: 0
         }
         this.scoreLeft = this.add.text(borderUISize + borderPadding, borderUISize + borderPadding * 2, this.p1Score, scoreConfig);
 
