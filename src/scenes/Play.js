@@ -1,3 +1,14 @@
+/*
+Creative tilt:
+--------------------------------------------------------------
+The portion of our game that is technically interesting
+And also adds great visual style to the game is that the
+tileSprite changes every 100 points
+This was implemented using if else statements, modulus
+and the .setTexture('image') method in order to add technical
+involvement into the game.
+--------------------------------------------------------------
+*/
 class Play extends Phaser.Scene {
     constructor() {
         super("playScene");
