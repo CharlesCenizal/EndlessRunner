@@ -243,6 +243,7 @@ class Play extends Phaser.Scene {
     }
 
     shipExplode(ship) {
+        this.sound.play('explode');
         console.log("trying to go to game over scene");
         this.scene.start("gameOverScene");
 

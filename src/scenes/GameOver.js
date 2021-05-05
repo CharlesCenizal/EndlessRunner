@@ -5,6 +5,7 @@ class GameOver extends Phaser.Scene {
 
     preload() {
         this.load.image('map_1', './assets/map1.png')
+        this.load.audio('sfx_select', './assets/discord-leave.mp3');
     }
 
     create() {
@@ -41,16 +42,18 @@ class GameOver extends Phaser.Scene {
         this.add.text(game.config.width / 2, game.config.height / 2 - 96, 'Press (R) to Restart or ← to Menu',menuConfig).setOrigin(0.5);
         this.add.text(game.config.width / 2, game.config.height / 2 + 64, 'Credits:',overConfig).setOrigin(0.5);
         this.add.text(game.config.width / 2, game.config.height / 2 + 96, 'Collaborators: Charles Cenizal (Programmer), Jacob Yu (Programmer), Efrain Luengas (Artist)',overConfig).setOrigin(0.5);
-        this.add.text(game.config.width / 2, game.config.height / 2 + 128, 'Music:',overConfig).setOrigin(0.5);
+        this.add.text(game.config.width / 2, game.config.height / 2 + 128, 'Music: Made by Jacob Yu',overConfig).setOrigin(0.5);
         keyLEFT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
         keyR = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.R);
     }
 
     update() {
         if (Phaser.Input.Keyboard.JustDown(keyLEFT)) {
+            this.sound.play('sfx_select');
             this.scene.start("menuScene")
         }
         if (Phaser.Input.Keyboard.JustDown(keyR)) {
+            this.sound.play('sfx_select');
             this.scene.start("playScene")
         }
     }

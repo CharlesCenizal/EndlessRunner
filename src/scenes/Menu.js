@@ -4,9 +4,11 @@ class Menu extends Phaser.Scene {
     }
     preload() {
         this.load.image('map_1', './assets/map1.png')
-        this.load.audio('sfx_select', './assets/assets_blip_select12.wav');
+        this.load.audio('sfx_select', './assets/discord-leave.mp3');
         this.load.audio('sfx_explosion', './assets/assets_explosion38.wav');
         this.load.audio('sfx_rocket', './assets/assets_rocket_shot.wav');
+        this.load.audio('music','./assets/UnderwaterJingle.mp3')
+        this.load.audio('explode', './assets/roblox.mp3');
     }
     // adding the menu
     create() {
@@ -37,11 +39,26 @@ class Menu extends Phaser.Scene {
         // define keys
         keyLEFT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
         keyRIGHT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
+
+        this.music = this.sound.add('music');
+
+        var musicConfig =
+        {
+          mute: false,
+          volume: 1,
+          rate: 1,
+          detune: 0,
+          seek: 0,
+          loop: false,
+          delate: 0
+        }
+        this.music.play(musicConfig);
         //this.add.text(20, 20, "Rocket Patrol Menu");
         // change scenes
         //this.scene.start("playScene")
     }
     update() {
+        //this.music.play(musicConfig);
         if (Phaser.Input.Keyboard.JustDown(keyLEFT)) {
             game.settings =
             {
