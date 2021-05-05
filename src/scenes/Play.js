@@ -159,7 +159,7 @@ class Play extends Phaser.Scene {
         else if(parseInt(this.scoreLeft.text) % 800 == 0 && parseInt(this.scoreLeft.text) > 0)
         {
           this.sound.play('sfx_select');
-          this.curr_background.setTexture('map_5');
+          this.curr_background.setTexture('sea5');
         }
 
         else if(parseInt(this.scoreLeft.text) %  700 ==0 && parseInt(this.scoreLeft.text)> 0){
