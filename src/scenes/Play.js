@@ -34,7 +34,7 @@ class Play extends Phaser.Scene {
         // first background
         this.load.image('map_1', './assets/map1.png')
         // sea background
-        this.load.image('map_2','./assets/SeaBackground.png')
+        this.load.image('sea0','./assets/SeaBackground.png')
         this.load.image('sea1','./assets/sea1.png')
         this.load.image('sea2','./assets/sea2.png')
         this.load.image('sea3','./assets/sea3.png')
@@ -46,6 +46,7 @@ class Play extends Phaser.Scene {
         this.load.image('rocket', './assets/Fish.png');
         this.load.image('spaceship', './assets/Shark.png');
         this.load.image('hammerhead', './assets/Hammerhead.png');
+        this.load.audio('sfx_select', './assets/discord-leave.mp3');
 
         this.load.spritesheet('explosion', './assets/explosion.png', {
             frameWidth: 64,
@@ -61,7 +62,7 @@ class Play extends Phaser.Scene {
 
 
 
-        this.curr_background = this.add.tileSprite(0,0, game.config.width, game.config.height, 'map_2').setOrigin(0, 0);
+        this.curr_background = this.add.tileSprite(0,0, game.config.width, game.config.height, 'sea0').setOrigin(0, 0);
 
         this.player1Rocket = new Rocket(this, game.config.width / 2, game.config.height / 2, 'rocket').setOrigin(0.5, 0.5);
         // add spaceshift (x3)
@@ -146,44 +147,55 @@ class Play extends Phaser.Scene {
 
         if(parseInt(this.scoreLeft.text) % 1000 == 0 && parseInt(this.scoreLeft.text) > 0)
         {
-          this.curr_background.setTexture('sea2');
+          this.sound.play('sfx_select');
+          this.curr_background.setTexture('map_1');
         }
 
         else if(parseInt(this.scoreLeft.text) % 900 == 0 && parseInt(this.scoreLeft.text) > 0)
         {
-          this.curr_background.setTexture('sea1');
+          this.sound.play('sfx_select');
+          this.curr_background.setTexture('sea6');
         }
         else if(parseInt(this.scoreLeft.text) % 800 == 0 && parseInt(this.scoreLeft.text) > 0)
         {
-          this.curr_background.setTexture('map_2');
+          this.sound.play('sfx_select');
+          this.curr_background.setTexture('map_5');
         }
 
         else if(parseInt(this.scoreLeft.text) %  700 ==0 && parseInt(this.scoreLeft.text)> 0){
-          this.curr_background.setTexture('sea6');
-        }
-
-        else if(parseInt(this.scoreLeft.text) %  600 ==0 && parseInt(this.scoreLeft.text)> 0){
-          this.curr_background.setTexture('sea5');
-        }
-
-        else if(parseInt(this.scoreLeft.text) %  500 ==0 && parseInt(this.scoreLeft.text)> 0){
+          this.sound.play('sfx_select');
           this.curr_background.setTexture('sea4');
         }
 
-        else if(parseInt(this.scoreLeft.text) %  400 ==0 && parseInt(this.scoreLeft.text)> 0){
-          this.curr_background.setTexture('sea3');
-        }
-
-        else if(parseInt(this.scoreLeft.text) %  300 ==0 && parseInt(this.scoreLeft.text)> 0){
+        else if(parseInt(this.scoreLeft.text) %  600 ==0 && parseInt(this.scoreLeft.text)> 0){
+          this.sound.play('sfx_select');
           this.curr_background.setTexture('sea2');
         }
 
+        else if(parseInt(this.scoreLeft.text) %  500 ==0 && parseInt(this.scoreLeft.text)> 0){
+          this.sound.play('sfx_select');
+          this.curr_background.setTexture('sea0');
+        }
+
+        else if(parseInt(this.scoreLeft.text) %  400 ==0 && parseInt(this.scoreLeft.text)> 0){
+          this.sound.play('sfx_select');
+          this.curr_background.setTexture('sea6');
+        }
+
+        else if(parseInt(this.scoreLeft.text) %  300 ==0 && parseInt(this.scoreLeft.text)> 0){
+          this.sound.play('sfx_select');
+          this.curr_background.setTexture('sea5');
+        }
+
         else if(parseInt(this.scoreLeft.text) %  200 ==0 && parseInt(this.scoreLeft.text)> 0){
-          this.curr_background.setTexture('sea1');
+          this.sound.play('sfx_select');
+
+          this.curr_background.setTexture('sea4');
         }
 
         else if(parseInt(this.scoreLeft.text) %  100 ==0 && parseInt(this.scoreLeft.text)> 0){
-          this.curr_background.setTexture('map_1');
+          this.sound.play('sfx_select');
+          this.curr_background.setTexture('sea2');
         }
 
 
