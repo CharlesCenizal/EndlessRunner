@@ -49,7 +49,7 @@ class Menu extends Phaser.Scene {
           rate: 1,
           detune: 0,
           seek: 0,
-          loop: false,
+          loop: true,
           delate: 0
         }
         this.music.play(musicConfig);
