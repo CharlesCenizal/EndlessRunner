@@ -34,7 +34,7 @@ class Play extends Phaser.Scene {
         // first background
         this.load.image('map_1', './assets/map1.png')
         // sea background
-        this.load.image('sea0','./assets/SeaBackground.png')
+        this.load.image('sea0','./assets/sea0.png')
         this.load.image('sea1','./assets/sea1.png')
         this.load.image('sea2','./assets/sea2.png')
         this.load.image('sea3','./assets/sea3.png')
