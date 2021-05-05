@@ -132,8 +132,8 @@ class Play extends Phaser.Scene {
         while (this.difficultyTimer > 30000) {
             this.difficultyTimer -= 30000;
             if (this.ship01.moveSpeed < 7) {
-                this.ship01.moveSpeed += .5;
-                this.ship02.moveSpeed += .5;
+                this.ship01.moveSpeed += .25;
+                this.ship02.moveSpeed += .25;
                 //this.ship03.moveSpeed += 1;
             }
         }
