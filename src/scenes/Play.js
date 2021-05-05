@@ -39,8 +39,10 @@ class Play extends Phaser.Scene {
         this.load.image('sea2','./assets/sea2.png')
         this.load.image('sea3','./assets/sea3.png')
         this.load.image('sea4','./assets/sea4.png')
-        this.load.image('map_3', './assets/map_3.png')
-        this.load.image('map_4', './assets/map_4.png')
+        this.load.image('sea5','./assets/sea5.png')
+        this.load.image('sea6','./assets/sea6.png')
+        //this.load.image('map_3', './assets/map_3.png')
+        //this.load.image('map_4', './assets/map_4.png')
         this.load.image('rocket', './assets/Fish.png');
         this.load.image('spaceship', './assets/Shark.png');
         this.load.image('hammerhead', './assets/Hammerhead.png');
@@ -132,8 +134,8 @@ class Play extends Phaser.Scene {
         while (this.difficultyTimer > 30000) {
             this.difficultyTimer -= 30000;
             if (this.ship01.moveSpeed < 7) {
-                this.ship01.moveSpeed += .25;
-                this.ship02.moveSpeed += .25;
+                this.ship01.moveSpeed += .5;
+                this.ship02.moveSpeed += .5;
                 //this.ship03.moveSpeed += 1;
             }
         }
@@ -144,24 +146,24 @@ class Play extends Phaser.Scene {
 
         if(parseInt(this.scoreLeft.text) % 1000 == 0 && parseInt(this.scoreLeft.text) > 0)
         {
-          this.curr_background.setTexture('sea4');
+          this.curr_background.setTexture('sea2');
         }
 
         else if(parseInt(this.scoreLeft.text) % 900 == 0 && parseInt(this.scoreLeft.text) > 0)
         {
-          this.curr_background.setTexture('sea3');
+          this.curr_background.setTexture('sea1');
         }
         else if(parseInt(this.scoreLeft.text) % 800 == 0 && parseInt(this.scoreLeft.text) > 0)
         {
-          this.curr_background.setTexture('sea2');
+          this.curr_background.setTexture('map_2');
         }
 
         else if(parseInt(this.scoreLeft.text) %  700 ==0 && parseInt(this.scoreLeft.text)> 0){
-          this.curr_background.setTexture('sea1');
+          this.curr_background.setTexture('sea6');
         }
 
         else if(parseInt(this.scoreLeft.text) %  600 ==0 && parseInt(this.scoreLeft.text)> 0){
-          this.curr_background.setTexture('map_2');
+          this.curr_background.setTexture('sea5');
         }
 
         else if(parseInt(this.scoreLeft.text) %  500 ==0 && parseInt(this.scoreLeft.text)> 0){
